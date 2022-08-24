@@ -14,7 +14,7 @@
                     File code
                 </td>
                 <td>
-                    <input type="text" name="filecode" id="code">
+                    <input type="text" maxlength="10"name="filecode" id="code">
                 </td>
             </tr>
             <tr>
@@ -27,10 +27,10 @@
             </tr>
             <tr>
                 <td>
-                    Construction License
+                    Construction License Issue Date
                 </td>
                 <td>
-                    <input type="text" name="constructionlicense" id="consl">
+                    <input type="date" maxlength="10" name="constructionlicense" id="consl">
                 </td>
             </tr>
             <tr>
@@ -38,15 +38,31 @@
                     Occupancy
                 </td>
                 <td>
-                    <input type="text" name="occupancy" id="occup">
+                    <label>No.</label>
+                    <input type="text" size="1" maxlength="1" name="occ1" id="occ1">
+                    <label> (OC) </label>
+                    <input type="text" size="1" maxlength="1" name="occ2" id="occ2">
+                    <label>/</label>
+                    <input type="text" size="5" maxlength="5" name="occ3" id="occ3">
+                    <label>/TECH/</label>
+                    <input type="text" size="2" maxlength="2" name="occ4" id="occ4">
                 </td>
             </tr>
+            <tr>
+                <td>
+                    Year
+                </td>
+                <td>
+                    <input type="text" name="year" id="year">
+                </td>
+            </tr>
+            <tr>
             <tr>
                 <td>
                     Renewal License
                 </td>
                 <td>
-                    <input type="text" name="renewallicense" id="occup">
+                    <input type="date" name="renewallicense" id="renew">
                 </td>
             </tr>
             <tr>
@@ -54,7 +70,7 @@
                     Revise
                 </td>
                 <td>
-                    <input type="text" name="revise" id="occup">
+                    <input type="date" name="revise" id="revise">
                 </td>
             </tr>
             <tr>
@@ -76,15 +92,6 @@
                     <input type="text" name="elink" id="link">
                 </td>
             </tr>
-            <tr>
-                <td>
-                    Year
-                </td>
-                <td>
-                    <input type="text" name="year" id="year">
-                </td>
-            </tr>
-            <tr>
                 <td>
                 <input type="submit" name="submit" value="Enter Data">
                 </td>
@@ -104,8 +111,7 @@
 function ValidateData(){
     var license = document.getElementById('code').value;
     var year = document.getElementById('year').value;
-    var license = document.getElementById('code').value;
-    var license = document.getElementById('code').value;
+    var name = document.getElementbyId('name').value;
 
     if(!license.match(/^A\/[0-9]{0-3}\/[0-9]{2}-[0-9]{2}$/)){
         alert("Invalid License Code")
@@ -115,14 +121,11 @@ function ValidateData(){
         alert("Invalid Year")
         return false;
     }
-    if(!a.match(/^A\/[0-9]{0-3}\/[0-9]{2}-[0-9]{2}$/)){
-        alert("Invalid License Code")
+    if(!name.match(/^\w+$/)){
+        alert("Invalid Name")
         return false;
     }
-    if(!a.match(/^A\/[0-9]{0-3}\/[0-9]{2}-[0-9]{2}$/)){
-        alert("Invalid License Code")
-        return false;
-    }
+    return true;
 }
 
 </script>
